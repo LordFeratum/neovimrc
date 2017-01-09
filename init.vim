@@ -27,6 +27,8 @@ Plug 'Shougo/neosnippet-snippets'
 
 Plug 'Yggdroot/indentLine'
 
+Plug 'scrooloose/nerdtree'
+
 
 call plug#end()
 
