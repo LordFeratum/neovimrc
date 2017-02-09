@@ -29,6 +29,11 @@ Plug 'Yggdroot/indentLine'
 
 Plug 'scrooloose/nerdtree'
 
+Plug 'neomake/neomake'
+
+Plug 'milkypostman/vim-togglelist'
+
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 
@@ -217,3 +222,19 @@ vnoremap <silent> <C-Down> :m '>+1<CR>gv=gv
 vnoremap <silent> <C-Up> :m '<-2<CR>gv=gv
 inoremap <silent> <C-Down> <Esc>:m .+1<CR>==gi
 inoremap <silent> <C-Up> <Esc>:m .-2<CR>==gi
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Neomake
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_python_flake8_maker = { 'args': ['--ignore=E115,E266,E501'], }
+let g:neomake_python_pep8_maker = { 'args': ['--max-line-length=80', '--ignore=E115,E266'], }
+autocmd! BufWritePost * Neomake
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NeoFormat
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:neoformat_enabled_python = ['autopep8', 'yapf']
+
