@@ -1,8 +1,8 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/quique'
-let g:netrw_dirhist_2='/home/quique/Música'
-let g:netrw_dirhist_3='/home/quique'
-let g:netrw_dirhist_4='/home/quique/docs'
+let g:netrw_dirhist_1='/home/quique/projects'
+let g:netrw_dirhist_2='/home/quique'
+let g:netrw_dirhist_3='/home/quique/.config/nvim'
+let g:netrw_dirhist_4='/home/quique/.config'
 let g:netrw_dirhist_5='/home/quique'
-let g:netrw_dirhist_6='/home/quique/projects/destination-service/destinations/views'
+let g:netrw_dirhist_6='/home/quique/.config/terminator'

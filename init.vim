@@ -234,7 +234,7 @@ inoremap <silent> <C-Up> <Esc>:m .-2<CR>==gi
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Neomake
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_python_enabled_makers = ['pyflakes']
 let g:neomake_python_flake8_maker = { 'args': ['--ignore=E115,E266,E501'], }
 let g:neomake_python_pep8_maker = { 'args': ['--max-line-length=80', '--ignore=E115,E266'], }
 autocmd! BufWritePost * Neomake
