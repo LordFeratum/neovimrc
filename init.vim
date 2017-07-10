@@ -35,6 +35,8 @@ Plug 'milkypostman/vim-togglelist'
 
 Plug 'sbdchd/neoformat'
 
+Plug 'ctrlpvim/ctrlp.vim'
+
 call plug#end()
 
 
