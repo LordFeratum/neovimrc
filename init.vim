@@ -17,6 +17,7 @@ Plug 'jscappini/material.vim'
 Plug 'tomasr/molokai'
 Plug 'freeo/vim-kalisi'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 
 Plug 'hdima/python-syntax'
 
@@ -51,9 +52,9 @@ let mapleader = ","
 
 " Color scheme
 colorscheme hybrid_material
+set background=dark
 
 set number
-set background=dark
 
 " Enable filetype plugins
 filetype on
