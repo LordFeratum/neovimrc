@@ -37,6 +37,8 @@ Plug 'sbdchd/neoformat'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 
