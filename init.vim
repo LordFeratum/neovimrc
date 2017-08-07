@@ -40,6 +40,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'tpope/vim-fugitive'
 
+Plug 'itchyny/calendar.vim'
+
 call plug#end()
 
 
@@ -122,7 +124,7 @@ map <leader>nf :NERDTreeFind<cr>
 " => BufExplorer
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>t :BufExplorer<cr>
-map <C-x> :bdelete<CR>
+map <silent> <C-x> :bp <bar> sp <bar> bn <bar> bd <CR>
 map <C-r> :source ~/.config/nvim/init.vim<CR>
 
 
@@ -245,3 +247,11 @@ autocmd! BufWritePost * Neomake
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:neoformat_enabled_python = ['autopep8', 'yapf']
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Calendar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+nnoremap <silent> <C-c> :Calendar<CR>
