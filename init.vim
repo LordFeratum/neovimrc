@@ -43,6 +43,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'itchyny/calendar.vim'
 
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -50,7 +51,10 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:python_host_prog = '/usr/bin/python3.5'
+let g:python_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
+
+autocmd CompleteDone * pclose " To close preview window of deoplete automagically
 
 let mapleader = ","
 
@@ -159,7 +163,13 @@ map <leader>gp :Gpush<cr>
 " => Deoplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#complete_method = 'omnifunc'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Deoplete Jedi
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#python_path = '/usr/bin/python3'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Chromatica
@@ -267,3 +277,5 @@ nnoremap <C-g> :Goyo<CR>
 let g:goyo_width = 100
 let g:goyo_height = 100
 let g:goyo_linenr = 0
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
