@@ -248,6 +248,7 @@ autocmd! BufWritePost * Neomake
 " => NeoFormat
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:neoformat_enabled_python = ['autopep8', 'yapf']
+nnoremap <C-f> :Neoformat<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
