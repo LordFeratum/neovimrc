@@ -42,6 +42,8 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'itchyny/calendar.vim'
 
+Plug 'junegunn/goyo.vim'
+
 call plug#end()
 
 
@@ -255,3 +257,12 @@ let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 
 nnoremap <silent> <C-c> :Calendar<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Goyo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <C-g> :Goyo<CR>
+let g:goyo_width = 100
+let g:goyo_height = 100
+let g:goyo_linenr = 0
