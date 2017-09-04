@@ -45,6 +45,8 @@ Plug 'itchyny/calendar.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
+Plug 'thirtythreeforty/lessspace.vim'
+
 call plug#end()
 
 
@@ -71,9 +73,6 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
-" Fast saving
-nmap <leader>w :w!<cr>
 
 "More than 79 chars in python mark in red
 :au BufWinEnter *.py let w:m2=matchadd('ErrorMsg', '\%>79v.\+', -1)
@@ -279,3 +278,10 @@ let g:goyo_height = 100
 let g:goyo_linenr = 0
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => LessSpace
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:lessspace_enabled = 1
+let g:lessspace_whitelist = ['python']
