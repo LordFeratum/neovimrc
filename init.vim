@@ -47,6 +47,8 @@ Plug 'junegunn/limelight.vim'
 
 Plug 'thirtythreeforty/lessspace.vim'
 
+Plug 'kien/rainbow_parentheses.vim'
+
 call plug#end()
 
 
@@ -74,10 +76,12 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
-"More than 79 chars in python mark in red
-:au BufWinEnter *.py let w:m2=matchadd('ErrorMsg', '\%>79v.\+', -1)
 
-set colorcolumn=80
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Python Language
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"More than 79 chars in python mark in red
+autocmd FileType python setlocal colorcolumn=80
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -285,3 +289,12 @@ autocmd! User GoyoLeave Limelight!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lessspace_enabled = 1
 let g:lessspace_whitelist = ['python']
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Rainbow
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
