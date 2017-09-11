@@ -6,7 +6,6 @@ call plug#begin('~/.config/nvim/plugins')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'zchee/deoplete-jedi'
-Plug 'arakashic/chromatica.nvim'
 
 Plug 'elixir-lang/vim-elixir'
 Plug 'thinca/vim-ref'
