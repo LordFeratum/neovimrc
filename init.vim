@@ -6,11 +6,16 @@ call plug#begin('~/.config/nvim/plugins')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'zchee/deoplete-jedi'
-
 Plug 'arakashic/chromatica.nvim'
+
+Plug 'elixir-lang/vim-elixir'
+Plug 'thinca/vim-ref'
+Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+Plug 'kbrw/elixir.nvim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'hdima/python-syntax'
 
 Plug 'jdkanani/vim-material-theme'
 Plug 'jscappini/material.vim'
@@ -18,8 +23,6 @@ Plug 'tomasr/molokai'
 Plug 'freeo/vim-kalisi'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
-
-Plug 'hdima/python-syntax'
 
 Plug 'tpope/vim-commentary'
 
