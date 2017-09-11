@@ -4,8 +4,9 @@
 call plug#begin('~/.config/nvim/plugins')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 Plug 'zchee/deoplete-jedi'
+
+Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'elixir-lang/vim-elixir'
 Plug 'thinca/vim-ref'
@@ -300,3 +301,27 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Highlighter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:highlighter#auto_update = 2
+let g:highlighter#project_root_signs = ['.git']
+let g:highlighter#syntax_python = [
+      \ { 'hlgroup'       : 'HighlighterPythonFunction',
+      \   'hlgroup_link'  : 'Function',
+      \   'tagkinds'      : 'f',
+      \   'syntax_type'   : 'match',
+      \   'syntax_suffix' : '(\@=',
+      \ },
+      \ { 'hlgroup'       : 'HighlighterPythonMethod',
+      \   'hlgroup_link'  : 'Function',
+      \   'tagkinds'      : 'm',
+      \   'syntax_type'   : 'match',
+      \   'syntax_prefix' : '\.\@<=',
+      \ },
+      \ { 'hlgroup'       : 'HighlighterPythonClass',
+      \   'hlgroup_link'  : 'Type',
+      \   'tagkinds'      : 'c',
+      \ }]
