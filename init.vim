@@ -3,14 +3,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugins')
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-
-Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'davidhalter/jedi-vim'
-
-Plug 'majutsushi/tagbar'
-
 Plug 'elixir-lang/vim-elixir'
 Plug 'thinca/vim-ref'
 Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
@@ -18,7 +10,6 @@ Plug 'kbrw/elixir.nvim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'hdima/python-syntax'
 
 Plug 'jdkanani/vim-material-theme'
 Plug 'jscappini/material.vim'
@@ -52,8 +43,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 Plug 'thirtythreeforty/lessspace.vim'
-
-Plug 'kien/rainbow_parentheses.vim'
 
 call plug#end()
 
@@ -168,19 +157,6 @@ map <leader>gp :Gpush<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Deoplete
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 0
-let g:deoplete#complete_method = 'omnifunc'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Deoplete Jedi
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#sources#jedi#show_docstring = 1
-let g:deoplete#sources#jedi#python_path = '/usr/bin/python3'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 2
@@ -289,57 +265,3 @@ autocmd! User GoyoLeave Limelight!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lessspace_enabled = 1
 let g:lessspace_whitelist = ['python']
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Rainbow
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Highlighter
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:highlighter#auto_update = 2
-let g:highlighter#project_root_signs = ['.git']
-let g:highlighter#syntax_python = [
-      \ { 'hlgroup'       : 'HighlighterPythonFunction',
-      \   'hlgroup_link'  : 'Function',
-      \   'tagkinds'      : 'f',
-      \   'syntax_type'   : 'match',
-      \   'syntax_suffix' : '(\@=',
-      \ },
-      \ { 'hlgroup'       : 'HighlighterPythonMethod',
-      \   'hlgroup_link'  : 'Function',
-      \   'tagkinds'      : 'm',
-      \   'syntax_type'   : 'match',
-      \   'syntax_prefix' : '\.\@<=',
-      \ },
-      \ { 'hlgroup'       : 'HighlighterPythonClass',
-      \   'hlgroup_link'  : 'Type',
-      \   'tagkinds'      : 'c',
-      \ }]
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => TagBar
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>tb :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Python-Jedi
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#completions_enabled = 0
-
