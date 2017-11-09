@@ -3,6 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugins')
 
+Plug 'editorconfig/editorconfig-vim'
+
 Plug 'elixir-lang/vim-elixir'
 Plug 'thinca/vim-ref'
 Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
