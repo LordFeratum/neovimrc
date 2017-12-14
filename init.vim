@@ -3,6 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugins')
 
+Plug 'chrisbra/Colorizer'
+
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'elixir-lang/vim-elixir'
