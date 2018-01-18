@@ -3,9 +3,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugins')
 
+Plug 'vim-scripts/vim-auto-save'
+
 Plug 'chrisbra/Colorizer'
 
-Plug 'editorconfig/editorconfig-vim'
+Plug 'sgur/vim-editorconfig'
 
 Plug 'elixir-lang/vim-elixir'
 Plug 'thinca/vim-ref'
@@ -47,6 +49,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 Plug 'thirtythreeforty/lessspace.vim'
+
+Plug 'jmcomets/vim-pony'
 
 call plug#end()
 
@@ -269,3 +273,12 @@ autocmd! User GoyoLeave Limelight!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lessspace_enabled = 1
 let g:lessspace_whitelist = ['python']
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Auto Save
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set updatetime=100000
+let g:auto_save = 1
+let g:auto_save_no_updatetime = 0
+let g:auto_save_in_insert_mode = 0
