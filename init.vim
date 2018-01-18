@@ -41,6 +41,7 @@ Plug 'sbdchd/neoformat'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 Plug 'itchyny/calendar.vim'
