@@ -3,6 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugins')
 
+Plug 'christianrondeau/vim-base64'
+
 Plug 'vim-scripts/vim-auto-save'
 
 Plug 'chrisbra/Colorizer'
@@ -86,7 +88,8 @@ set autoread
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "More than 79 chars in python mark in red
 autocmd FileType python setlocal colorcolumn=80
-
+autocmd FileType python setlocal shiftwidth=4
+autocmd FileType python setlocal tabstop=4
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -96,10 +99,6 @@ set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
 
 " Linebreak on 500 characters
 set lbr
@@ -138,22 +137,6 @@ map <leader>nf :NERDTreeFind<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <C-x> :bp <bar> sp <bar> bn <bar> bd <CR>
 map <C-r> :source ~/.config/nvim/init.vim<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => TagBar
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tagbar_left = 1
-
-nnoremap <silent> <F9> :TagbarToggle<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Syntastic
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>s :SyntasticToggleMode<cr>
-map <leader>c :SyntasticCheck<cr>
-map <leader>e :lopen<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
