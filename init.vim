@@ -3,6 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugins')
 
+Plug 'w0rp/ale'
+
 Plug 'christianrondeau/vim-base64'
 
 Plug 'vim-scripts/vim-auto-save'
@@ -34,8 +36,6 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Yggdroot/indentLine'
 
 Plug 'scrooloose/nerdtree'
-
-Plug 'neomake/neomake'
 
 Plug 'milkypostman/vim-togglelist'
 
@@ -217,12 +217,16 @@ inoremap <silent> <C-Up> <Esc>:m .-2<CR>==gi
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Neomake
+" => ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neomake_python_enabled_makers = ['pyflakes']
-let g:neomake_python_flake8_maker = { 'args': ['--ignore=E115,E266,E501'], }
-let g:neomake_python_pep8_maker = { 'args': ['--max-line-length=80', '--ignore=E115,E266'], }
-autocmd! BufWritePost * Neomake
+let g:airline#extensions#ale#enabled = 1
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\  'python': ['yapf'],
+\}
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let b:ale_linters = ['flake8', 'pylint']
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
