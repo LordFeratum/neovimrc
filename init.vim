@@ -13,6 +13,8 @@ Plug 'chrisbra/Colorizer'
 
 Plug 'sgur/vim-editorconfig'
 
+Plug 'mxw/vim-jsx'
+
 Plug 'elixir-lang/vim-elixir'
 Plug 'thinca/vim-ref'
 Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
@@ -27,6 +29,9 @@ Plug 'tomasr/molokai'
 Plug 'freeo/vim-kalisi'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
+
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'tweekmonster/impsort.vim'
 
 Plug 'tpope/vim-commentary'
 
@@ -45,8 +50,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-
-Plug 'itchyny/calendar.vim'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -90,22 +93,42 @@ set autoread
 autocmd FileType python setlocal colorcolumn=80
 autocmd FileType python setlocal shiftwidth=4
 autocmd FileType python setlocal tabstop=4
+autocmd FileType python setlocal si
+autocmd FileType python setlocal ai
+autocmd FileType python setlocal expandtab
+autocmd FileType python setlocal smarttab
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Javscript Language
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType javascript setlocal colorcolumn=100
+autocmd FileType javascript setlocal shiftwidth=2
+autocmd FileType javascript setlocal tabstop=2
+autocmd FileType javascript setlocal expandtab
+autocmd FileType javascript setlocal smarttab
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YAML Language
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType yaml setlocal colorcolumn=300
+autocmd FileType yaml setlocal shiftwidth=2
+autocmd FileType yaml setlocal tabstop=2
+autocmd FileType yaml setlocal expandtab
+autocmd FileType yaml setlocal smarttab
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Makefiles
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType make setlocal noexpandtab
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
-set expandtab
-
-" Be smart when using tabs ;)
-set smarttab
-
 " Linebreak on 500 characters
 set lbr
 set tw=500
 
-set ai "Auto indent
-set si "Smart indent
 set wrap "Wrap lines
 
 
@@ -237,15 +260,6 @@ nnoremap <C-f> :Neoformat<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Calendar
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-
-nnoremap <silent> <C-c> :Calendar<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Goyo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-g> :Goyo<CR>
@@ -270,3 +284,9 @@ set updatetime=100000
 let g:auto_save = 1
 let g:auto_save_no_updatetime = 0
 let g:auto_save_in_insert_mode = 0
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Python Mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:pymode_python = 'python3'
