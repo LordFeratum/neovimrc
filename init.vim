@@ -1,10 +1,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 call plug#begin('~/.config/nvim/plugins')
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
+Plug 'terryma/vim-multiple-cursors'
 Plug 'luochen1990/rainbow'
 Plug 'raimondi/delimitmate'
 
@@ -165,7 +167,7 @@ map <leader>nf :NERDTreeFind<cr>
 " => BufExplorer
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <C-x> :bp <bar> sp <bar> bn <bar> bd <CR>
-map <C-r> :source ~/.config/nvim/init.vim<CR>
+map <C-u> :source ~/.config/nvim/init.vim<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
