@@ -3,6 +3,15 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugins')
 
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+
+Plug 'luochen1990/rainbow'
+Plug 'raimondi/delimitmate'
+
+Plug 'brooth/far.vim'
+
+Plug 'https://gitlab.com/Lenovsky/nuake.git'
+
 Plug 'w0rp/ale'
 
 Plug 'christianrondeau/vim-base64'
@@ -30,8 +39,7 @@ Plug 'freeo/vim-kalisi'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'tweekmonster/impsort.vim'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 Plug 'tpope/vim-commentary'
 
@@ -45,8 +53,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'milkypostman/vim-togglelist'
 
 Plug 'sbdchd/neoformat'
-
-Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -137,7 +143,7 @@ set wrap "Wrap lines
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
-map <c-space> ?
+
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -287,6 +293,30 @@ let g:auto_save_in_insert_mode = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Python Mode
+" => Nuake
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pymode_python = 'python3'
+nnoremap <F4> :Nuake<CR>
+inoremap <F4> <C-\><C-n>:Nuake<CR>
+tnoremap <F4> <C-\><C-n>:Nuake<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Leaderf
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <C-p> :LeaderfFile<CR>
+vnoremap <silent> <C-p> :LeaderfFile<CR>
+inoremap <silent> <C-p> :LeaderfFile<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Rainbow
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rainbow_active = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => DelimitMate
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:delimitMate_autoclose = 1
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_jump_expansion = 1
