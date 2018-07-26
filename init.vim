@@ -10,10 +10,13 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'luochen1990/rainbow'
 Plug 'raimondi/delimitmate'
 
+Plug 'yuttie/comfortable-motion.vim'
+
 Plug 'brooth/far.vim'
 
 Plug 'https://gitlab.com/Lenovsky/nuake.git'
 
+Plug 'zchee/deoplete-jedi'
 Plug 'w0rp/ale'
 
 Plug 'christianrondeau/vim-base64'
@@ -41,8 +44,6 @@ Plug 'freeo/vim-kalisi'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-
 Plug 'tpope/vim-commentary'
 
 Plug 'Shougo/neosnippet.vim'
@@ -50,6 +51,8 @@ Plug 'Shougo/neosnippet-snippets'
 
 Plug 'Yggdroot/indentLine'
 
+Plug 'majutsushi/tagbar'
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 
 Plug 'milkypostman/vim-togglelist'
@@ -72,10 +75,13 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set encoding=utf8
+set guifont=mononoki\ Nerd\ Font\ 18
+set mouse=a
+
 let g:python_host_prog = '/usr/bin/python3'
 let g:python3_host_prog = '/usr/bin/python3'
-
-autocmd CompleteDone * pclose " To close preview window of deoplete automagically
 
 let mapleader = ","
 
@@ -251,19 +257,19 @@ inoremap <silent> <C-Up> <Esc>:m .-2<CR>==gi
 " => ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#ale#enabled = 1
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_fixers = {
 \  'python': ['yapf'],
 \}
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
-let b:ale_linters = ['flake8', 'pylint']
+let b:ale_linters = ['pylint']
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NeoFormat
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neoformat_enabled_python = ['autopep8', 'yapf']
+let g:neoformat_enabled_python = ['yapf']
 nnoremap <C-f> :Neoformat<CR>
 
 
@@ -297,17 +303,23 @@ let g:auto_save_in_insert_mode = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nuake
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F4> :Nuake<CR>
+nnoremap <F4> :let g:nuake_size = 0.25<CR>:Nuake<CR>
 inoremap <F4> <C-\><C-n>:Nuake<CR>
 tnoremap <F4> <C-\><C-n>:Nuake<CR>
+
+nnoremap <F5> :let g:nuake_size = 1<CR>:Nuake<CR>
+inoremap <F5> <C-\><C-n>:Nuake<CR>
+tnoremap <F5> <C-\><C-n>:Nuake<CR>
+
+nnoremap <F6> :let g:nuake_size = 1<CR>:Nuake<CR><C-u>telnet 0.0.0.0 1234<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Leaderf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <C-p> :LeaderfFile<CR>
-vnoremap <silent> <C-p> :LeaderfFile<CR>
-inoremap <silent> <C-p> :LeaderfFile<CR>
+nnoremap <silent> <C-p> :Leaderf file --fullPath<CR>
+vnoremap <silent> <C-p> :Leaderf file --fullPath<CR>
+inoremap <silent> <C-p> :Leaderf file --fullPath<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -322,3 +334,94 @@ let g:rainbow_active = 1
 let g:delimitMate_autoclose = 1
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_jump_expansion = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Terminal
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-w>h <C-\><C-N><C-w>h
+tnoremap <C-w>j <C-\><C-N><C-w>j
+tnoremap <C-w>k <C-\><C-N><C-w>k
+tnoremap <C-w>l <C-\><C-N><C-w>l
+tnoremap <C-Left> :bnext<CR>
+tnoremap <C-Right> :bprevious<CR>
+inoremap <C-w>h <C-\><C-N><C-w>h
+inoremap <C-w>j <C-\><C-N><C-w>j
+inoremap <C-w>k <C-\><C-N><C-w>k
+inoremap <C-w>l <C-\><C-N><C-w>l
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Deoplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => TagBar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tagbar_left = 1
+nnoremap <F8> :TagbarToggle<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => DevIcons
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" loading the plugin 
+let g:webdevicons_enable = 1
+
+" adding the flags to NERDTree 
+let g:webdevicons_enable_nerdtree = 1
+
+" adding to vim-airline's tabline
+let g:webdevicons_enable_airline_tabline = 1
+
+" adding to vim-airline's statusline
+let g:webdevicons_enable_airline_statusline = 1
+
+" turn on/off file node glyph decorations (not particularly useful)
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+
+" use double-width(1) or single-width(0) glyphs 
+" only manipulates padding, has no effect on terminal or set(guifont) font
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+
+" whether or not to show the nerdtree brackets around flags 
+let g:webdevicons_conceal_nerdtree_brackets = 0
+
+" the amount of space to use after the glyph character (default ' ')
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+
+" Force extra padding in NERDTree so that the filetype icons line up vertically
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1 
+
+" change the default character when no match found
+let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = 'ƛ'
+
+" set a byte character marker (BOM) utf-8 symbol when retrieving file encoding
+" disabled by default with no value
+let g:WebDevIconsUnicodeByteOrderMarkerDefaultSymbol = ''
+
+" enable folder/directory glyph flag (disabled by default with 0)
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+" enable open and close folder/directory glyph flags (disabled by default with 0)
+let g:DevIconsEnableFoldersOpenClose = 1
+
+" enable pattern matching glyphs on folder/directory (enabled by default with 1)
+let g:DevIconsEnableFolderPatternMatching = 1
+
+" enable file extension pattern matching glyphs on folder/directory (disabled by default with 0)
+let g:DevIconsEnableFolderExtensionPatternMatching = 0
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Comfortable Motion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:comfortable_motion_no_default_key_mappings = 1
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
+let g:comfortable_motion_impulse_multiplier = 25  " Feel free to increase/decrease this value.
+nnoremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+nnoremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
