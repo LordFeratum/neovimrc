@@ -4,6 +4,8 @@
 
 call plug#begin('~/.config/nvim/plugins')
 
+Plug 'gu-fan/colorv.vim'
+
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 Plug 'terryma/vim-multiple-cursors'
@@ -16,6 +18,7 @@ Plug 'brooth/far.vim'
 
 Plug 'https://gitlab.com/Lenovsky/nuake.git'
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'w0rp/ale'
 
@@ -362,7 +365,10 @@ let g:deoplete#enable_at_startup = 1
 " => TagBar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_left = 1
-nnoremap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+let g:tagbar_sort = 0
+let g:tagbr_zoomwidth = 0
+nnoremap <silent> <F8> :TagbarToggle<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -388,7 +394,7 @@ let g:WebDevIconsUnicodeDecorateFileNodes = 1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 
 " whether or not to show the nerdtree brackets around flags 
-let g:webdevicons_conceal_nerdtree_brackets = 0
+let g:webdevicons_conceal_nerdtree_brackets = 1
 
 " the amount of space to use after the glyph character (default ' ')
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
@@ -425,3 +431,16 @@ let g:comfortable_motion_scroll_up_key = "k"
 let g:comfortable_motion_impulse_multiplier = 25  " Feel free to increase/decrease this value.
 nnoremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
 nnoremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ToggleList
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Deoplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
