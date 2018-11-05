@@ -69,6 +69,7 @@ Plug 'sbdchd/neoformat'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'idanarye/vim-merginal'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
