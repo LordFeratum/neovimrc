@@ -12,12 +12,13 @@ Plug 'raimondi/delimitmate'
 
 Plug 'yuttie/comfortable-motion.vim'
 
+Plug 'roxma/nvim-completion-manager'
+
 Plug 'brooth/far.vim'
 
 Plug 'https://gitlab.com/Lenovsky/nuake.git'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
+Plug 'plytophogy/vim-virtualenv'
 Plug 'w0rp/ale'
 
 Plug 'christianrondeau/vim-base64'
@@ -29,6 +30,8 @@ Plug 'chrisbra/Colorizer'
 Plug 'sgur/vim-editorconfig'
 
 Plug 'mxw/vim-jsx'
+
+Plug 'vim-python/python-syntax'
 
 Plug 'elixir-lang/vim-elixir'
 Plug 'thinca/vim-ref'
@@ -62,6 +65,7 @@ Plug 'sbdchd/neoformat'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'idanarye/vim-merginal'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -100,6 +104,12 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
+" check for and load file changes
+autocmd WinEnter,BufWinEnter,FocusGained * checktime
+
+" disable swapfile to avoid errors on load
+set noswapfile
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python Language
@@ -126,10 +136,19 @@ autocmd FileType javascript setlocal smarttab
 " => YAML Language
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType yaml setlocal colorcolumn=300
-autocmd FileType yaml setlocal shiftwidth=2
-autocmd FileType yaml setlocal tabstop=2
+autocmd FileType yaml setlocal shiftwidth=4
+autocmd FileType yaml setlocal tabstop=4
 autocmd FileType yaml setlocal expandtab
 autocmd FileType yaml setlocal smarttab
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => XML Language
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType xml setlocal colorcolumn=300
+autocmd FileType xml setlocal shiftwidth=2
+autocmd FileType xml setlocal tabstop=2
+autocmd FileType xml setlocal expandtab
+autocmd FileType xml setlocal smarttab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Makefiles
@@ -190,7 +209,7 @@ map <leader>gp :Gpush<cr>
 " => Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#fnamemod=':p:.'
+let g:airline#extensions#tabline#formatter='unique_tail_improved'
 let g:airline#extensions#tabline#left_alt_sep=' '
 let g:airline#extensions#tabline#left_sep=''
 let g:airline#extensions#tabline#right_sep=''
@@ -199,12 +218,8 @@ let g:airline_left_alt_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-" let g:airline_left_sep=' '
-" let g:airline_left_alt_sep='|'
-" let g:airline_right_sep=' '
-" let g:airline_right_alt_sep='|'
 let g:airline_powerline_fonts=1
-let g:airline_theme='bubblegum'
+let g:airline_theme='angr'
 let g:airline_solarized_bg='dark'
 
 
@@ -220,7 +235,7 @@ nnoremap <C-h> :bprevious<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Python
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let python_highlight_all = 1
+let g:python_highlight_all = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -309,15 +324,15 @@ let g:auto_save_in_insert_mode = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nuake
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F4> :let g:nuake_size = 0.25<CR>:Nuake<CR>
-inoremap <F4> <C-\><C-n>:Nuake<CR>
-tnoremap <F4> <C-\><C-n>:Nuake<CR>
+nnoremap <silent> <F4> :let g:nuake_size = 0.25<CR>:Nuake<CR>
+inoremap <silent> <F4> <C-\><C-n>:Nuake<CR>
+tnoremap <silent> <F4> <C-\><C-n>:Nuake<CR>
 
-nnoremap <F5> :let g:nuake_size = 1<CR>:Nuake<CR>
-inoremap <F5> <C-\><C-n>:Nuake<CR>
-tnoremap <F5> <C-\><C-n>:Nuake<CR>
+nnoremap <silent> <F5> :let g:nuake_size = 1<CR>:Nuake<CR>
+inoremap <silent> <F5> <C-\><C-n>:Nuake<CR>
+tnoremap <silent> <F5> <C-\><C-n>:Nuake<CR>
 
-nnoremap <F6> :let g:nuake_size = 1<CR>:Nuake<CR><C-u>telnet 0.0.0.0 1234<CR>
+nnoremap <silent> <F6> :let g:nuake_size = 1<CR>:Nuake<CR><C-u>telnet 0.0.0.0 1234<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
