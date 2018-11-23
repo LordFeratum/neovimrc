@@ -6,8 +6,6 @@ call plug#begin('~/.config/nvim/plugins')
 
 Plug 'chrisbra/csv.vim'
 
-Plug 'gu-fan/colorv.vim'
-
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 Plug 'terryma/vim-multiple-cursors'
