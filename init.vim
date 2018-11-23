@@ -4,7 +4,7 @@
 
 call plug#begin('~/.config/nvim/plugins')
 
-Plug 'floobits/floobits-neovim', {'do': 'UpdateRemotePlugins'}
+Plug 'chrisbra/csv.vim'
 
 Plug 'gu-fan/colorv.vim'
 
@@ -16,7 +16,10 @@ Plug 'raimondi/delimitmate'
 
 Plug 'yuttie/comfortable-motion.vim'
 
-Plug 'roxma/nvim-completion-manager'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 
 Plug 'brooth/far.vim'
 
@@ -222,7 +225,7 @@ let g:airline_left_alt_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts= 1
 let g:airline_theme='angr'
 let g:airline_solarized_bg='dark'
 
@@ -283,12 +286,9 @@ inoremap <silent> <C-Up> <Esc>:m .-2<CR>==gi
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#ale#enabled = 1
 let g:ale_fix_on_save = 0
-let g:ale_fixers = {
-\  'python': ['yapf'],
-\}
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 let g:ale_sign_column_always = 1
-let b:ale_linters = ['pylint']
+let b:ale_linters = ['pylint', 'flake8', 'vulture']
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -378,12 +378,6 @@ inoremap <C-w>l <C-\><C-N><C-w>l
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Deoplete
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => TagBar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_left = 1
@@ -466,3 +460,11 @@ nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 " => Deoplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#enable_typeinfo = 0
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Indent Lines
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:indentLine_char = '▏'
+let g:indentLine_char = ''
