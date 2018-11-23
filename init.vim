@@ -52,6 +52,8 @@ Plug 'tomasr/molokai'
 Plug 'freeo/vim-kalisi'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 
 Plug 'tpope/vim-commentary'
 
@@ -96,7 +98,8 @@ let g:python3_host_prog = '/usr/bin/python3'
 let mapleader = ","
 
 " Color scheme
-colorscheme hybrid_material
+" colorscheme hybrid_material
+colorscheme gruvbox
 set background=dark
 
 set number
@@ -224,7 +227,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_powerline_fonts= 1
-let g:airline_theme='angr'
+let g:airline_theme='gruvbox'
 let g:airline_solarized_bg='dark'
 
 
@@ -466,3 +469,12 @@ let g:deoplete#sources#jedi#enable_typeinfo = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:indentLine_char = '▏'
 let g:indentLine_char = ''
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => GruvBox
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gruvbox_italic = '1'
+let g:gruvbox_invert_selection = '0'
+let g:grucbox_number_column = 'bg2'
