@@ -26,11 +26,15 @@ Plug 'https://gitlab.com/Lenovsky/nuake.git'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'w0rp/ale'
 
+Plug 'elzr/vim-json'
+
 Plug 'christianrondeau/vim-base64'
 
 Plug 'vim-scripts/vim-auto-save'
 
 Plug 'chrisbra/Colorizer'
+
+Plug 'sheerun/vim-polyglot'
 
 Plug 'sgur/vim-editorconfig'
 
@@ -54,6 +58,14 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
+Plug 'nightsense/carbonized'
+Plug 'ajmwagar/vim-deus'
+Plug 'dikiaap/minimalist'
+Plug 'joshdick/onedark.vim'
+Plug 'sts10/vim-pink-moon'
+Plug 'jdsimcoe/abstract.vim'
+Plug 'junegunn/seoul256.vim'
 
 Plug 'tpope/vim-commentary'
 
@@ -98,8 +110,8 @@ let g:python3_host_prog = '/usr/bin/python3'
 let mapleader = ","
 
 " Color scheme
-" colorscheme hybrid_material
 colorscheme gruvbox
+set t_Co=256
 set background=dark
 
 set number
@@ -144,10 +156,11 @@ autocmd FileType javascript setlocal smarttab
 " => YAML Language
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType yaml setlocal colorcolumn=300
-autocmd FileType yaml setlocal shiftwidth=4
-autocmd FileType yaml setlocal tabstop=4
+autocmd FileType yaml setlocal shiftwidth=2
+autocmd FileType yaml setlocal tabstop=2
 autocmd FileType yaml setlocal expandtab
 autocmd FileType yaml setlocal smarttab
+autocmd FileType yaml :IndentLinesDisable
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => XML Language
@@ -467,7 +480,6 @@ let g:deoplete#sources#jedi#enable_typeinfo = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Indent Lines
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:indentLine_char = '▏'
 let g:indentLine_char = ''
 
 
