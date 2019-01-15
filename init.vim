@@ -6,6 +6,8 @@ call plug#begin('~/.config/nvim/plugins')
 
 Plug 'chrisbra/csv.vim'
 
+Plug 'rbgrouleff/bclose.vim'
+
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 Plug 'terryma/vim-multiple-cursors'
@@ -18,6 +20,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'ambv/black'
+
+Plug 'mhinz/vim-startify'
 
 Plug 'brooth/far.vim'
 
@@ -104,8 +109,8 @@ set encoding=utf8
 set guifont=mononoki\ Nerd\ Font\ 18
 set mouse=a
 
-let g:python_host_prog = '/usr/bin/python3'
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python3.6'
+let g:python3_host_prog = '/usr/bin/python3.6'
 
 let mapleader = ","
 
@@ -135,7 +140,7 @@ set noswapfile
 " => Python Language
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "More than 79 chars in python mark in red
-autocmd FileType python setlocal colorcolumn=80
+autocmd FileType python setlocal colorcolumn=89
 autocmd FileType python setlocal shiftwidth=4
 autocmd FileType python setlocal tabstop=4
 autocmd FileType python setlocal si
@@ -213,7 +218,7 @@ map <leader>nf :NERDTreeFind<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => BufExplorer
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <silent> <C-x> :bp <bar> sp <bar> bn <bar> bd <CR>
+map <silent> <C-x> :Bclose<CR>
 map <C-u> :source ~/.config/nvim/init.vim<CR>
 
 
@@ -249,8 +254,8 @@ let g:airline_solarized_bg='dark'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-Right> :bnext<CR>
 nnoremap <C-Left> :bprevious<CR>
-nnoremap <C-l> :bnext<CR>
-nnoremap <C-h> :bprevious<CR>
+nnoremap <C-l> gt<CR>
+nnoremap <C-h> gT<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -302,13 +307,22 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_fix_on_save = 0
 let g:ale_completion_enabled = 0
 let g:ale_sign_column_always = 1
-let b:ale_linters = ['pylint', 'flake8', 'vulture']
+let g:ale_linters_explicit = 1
+let g:ale_linters = {'python': ['flake8', 'mypy']}
+let g:ale_fixers = {'python': ['black', 'add_blank_lines_for_python_control_statements', 'isort', 'remove_trailing_lines']}
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 0
+let g:ale_keep_list_window_open = 0
+let g:ale_python_flake8_options = '--max-line-length 88'
 
+nmap <silent> <C-e> <Plug>(ale_next_wrap)
+nmap <silent> <C-S-e> <Plug>(ale_previous_wrap)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NeoFormat
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:neoformat_enabled_python = ['yapf']
+let g:neoformat_enabled_python = ['black']
 nnoremap <C-f> :Neoformat<CR>
 
 
@@ -349,8 +363,6 @@ tnoremap <silent> <F4> <C-\><C-n>:Nuake<CR>
 nnoremap <silent> <F5> :let g:nuake_size = 1<CR>:Nuake<CR>
 inoremap <silent> <F5> <C-\><C-n>:Nuake<CR>
 tnoremap <silent> <F5> <C-\><C-n>:Nuake<CR>
-
-nnoremap <silent> <F6> :let g:nuake_size = 1<CR>:Nuake<CR><C-u>telnet 0.0.0.0 1234<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -475,6 +487,8 @@ nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#enable_typeinfo = 0
+let g:deoplete#sources#jedi#ignore_errors = 1
+let g:deoplete#sources#jedi#statement_length = 88
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
